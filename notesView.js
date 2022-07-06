@@ -1,4 +1,5 @@
 class NotesView {
+  constructor
 
   displayNotes() {
     this.mainContainerEl = document.querySelector('#main-container');
