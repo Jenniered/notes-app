@@ -24,7 +24,7 @@ describe("NotesView", () => {
     const input = document.querySelector('#note_input')
     input.value = "Buy some carrots"
 
-    const buttonEl = document.querySelector('#add_note_button')
+    const buttonEl = document.querySelector('#add-note-button')
     buttonEl.click()
 
     expect(document.querySelectorAll("div.note").length).toBe(1);
