@@ -12,10 +12,7 @@ class NotesView {
 
   displayNotes() {
     this.mainContainerEl = document.querySelector('#main-container');
-    const old_notes = document.querySelectorAll('.note')
-    old_notes.forEach(note => {
-      note.remove()
-    })
+    this.refreshNotes();
     this.model.getNotes().forEach(note => {
    
       let div = document.createElement("div");
@@ -23,11 +20,17 @@ class NotesView {
       div.className = "note";
       this.mainContainerEl.append(div);
     });
-    
-  
+
     // console.log(div);
     // console.log(document.querySelectorAll("div").length);
     // console.log(document.querySelectorAll("div.note").length);
+  }
+
+  refreshNotes() {
+    const old_notes = document.querySelectorAll('.note')
+    old_notes.forEach(note => {
+    note.remove()
+  })
   }
 }
 
