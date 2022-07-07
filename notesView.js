@@ -1,6 +1,7 @@
 class NotesView {
   constructor(model, api) {
     this.model = model;
+    this.api = api;
 
     const newNote = document.querySelector('#note_input');
     this.button = document.querySelector('#add-note-button');
@@ -8,8 +9,7 @@ class NotesView {
       this.model.addNote(newNote.value)
       this.displayNotes();
       newNote.value = "";
-    })
-  }
+    })}
 
   displayNotes() {
     this.mainContainerEl = document.querySelector('#main-container');
@@ -21,20 +21,21 @@ class NotesView {
       div.className = "note";
       this.mainContainerEl.append(div);
     });
-
-    // console.log(div);
-    // console.log(document.querySelectorAll("div").length);
-    // console.log(document.querySelectorAll("div.note").length);
   }
+
+  displayNotesFromApi() {
+    console.log
+    (this.api.loadNotes(data => { return data })
+    )
+  };
 
   refreshNotes() {
     const old_notes = document.querySelectorAll('.note')
     old_notes.forEach(note => {
     note.remove()
   })
-  }
 }
-
+}
 // const getNotes = (callback) => {
 //   fetch('http://localhost:3000/notes')
 //     .then(response => response.json())

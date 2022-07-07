@@ -57,13 +57,12 @@ describe("NotesView", () => {
   it("displays the notes from the api", () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
     const model = new NotesModel();
-    const api = new NotesApi();
-    const view = new NotesView(model, api);
+    const fakeApi = { loadNotes: () => ['This note is coming from the server']}
+    const view = new NotesView(model, fakeApi);
 
-    fetch.mockResponseOnce(JSON.stringify(['This note is coming from the server']));
-
-    api.loadNotes((responseFromApi => { model.setNotes(responseFromApi) }));
-    view.displayNotes();
+    // api.loadNotes((responseFromApi => { model.setNotes(responseFromApi) }));
+    
+    view.displayNotesFromApi();
 
     expect(document.querySelectorAll("div.note").length).toBe(1);
     expect(document.querySelectorAll("div.note")[0].innerText).toEqual('This note is coming from the server')
