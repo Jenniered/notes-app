@@ -1,5 +1,5 @@
 class NotesView {
-  constructor(model) {
+  constructor(model, api) {
     this.model = model;
 
     const newNote = document.querySelector('#note_input');
