@@ -12,7 +12,10 @@ class NotesView {
 
   displayNotes() {
     this.mainContainerEl = document.querySelector('#main-container');
-
+    const old_notes = document.querySelectorAll('.note')
+    old_notes.forEach(note => {
+      note.remove()
+    })
     this.model.getNotes().forEach(note => {
    
       let div = document.createElement("div");

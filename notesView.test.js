@@ -31,4 +31,23 @@ describe("NotesView", () => {
     expect(document.querySelectorAll("div.note")[0].innerText).toEqual("Buy some carrots")
 
   })
-});
+
+  it("clears previous notes displayed and then displays the notes the user has inputted", () => {
+    document.body.innerHTML = fs.readFileSync('./index.html');
+    const model = new NotesModel();
+    const view = new NotesView(model);
+
+    const input = document.querySelector('#note_input')
+    input.value = "Buy some carrots"
+
+    const buttonEl = document.querySelector('#add-note-button')
+    buttonEl.click()
+
+    const input_2 = document.querySelector('#note_input')
+    input_2.value = "Buy some beer"
+
+    buttonEl.click()
+
+    expect(document.querySelectorAll("div.note").length).toBe(2);
+})
+})
