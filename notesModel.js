@@ -4,11 +4,14 @@ class NotesModel {
   }
 
   getNotes() {
+    console.log(this.notes)
     return this.notes;
   }
 
   setNotes(notes) {
-    this.notes = notes;
+    console.log(notes)
+    this.notes.push(notes[0]);
+    console.log(this.notes)
   }
 
   addNote(note){

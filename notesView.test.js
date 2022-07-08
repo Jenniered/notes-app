@@ -57,7 +57,7 @@ describe("NotesView", () => {
   it("displays the notes from the api", () => {
     document.body.innerHTML = fs.readFileSync('./index.html');
     const model = new NotesModel();
-    const fakeApi = { loadNotes: () => ['This note is coming from the server']}
+    const fakeApi = { loadNotes: () => model.setNotes(['This note is coming from the server'])}
     const view = new NotesView(model, fakeApi);
     
     view.displayNotesFromApi();
