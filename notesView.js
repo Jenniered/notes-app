@@ -24,7 +24,8 @@ class NotesView {
   }
 
   displayNotesFromApi() {
-    const notesFromServer = this.api.loadNotes(data => { return data });
+    const notesFromServer = this.api.loadNotes(data => {  return data  });
+    console.log(notesFromServer)
     this.model.setNotes(notesFromServer);
     this.displayNotes();
   };

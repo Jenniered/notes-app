@@ -8,7 +8,7 @@ model.addNote('This is an example note')
 const api = new NotesApi();
 
 const view = new NotesView(model, api);
-view.displayNotes();
+view.displayNotesFromApi();
 
 console.log(model.getNotes());
 
