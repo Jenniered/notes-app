@@ -15,7 +15,6 @@ class NotesView {
     this.mainContainerEl = document.querySelector('#main-container');
     this.refreshNotes();
     this.model.getNotes().forEach(note => {
-   
       let div = document.createElement("div");
       div.innerText = note;
       div.className = "note";
@@ -24,8 +23,11 @@ class NotesView {
   }
 
   displayNotesFromApi() {
-    this.api.loadNotes(data => { this.model.setNotes(data) });
-    this.displayNotes();
+     this.api.loadNotes(data => { 
+      this.model.setNotes(data); 
+      this.displayNotes(); 
+    });
+    
   };
 
   refreshNotes() {
