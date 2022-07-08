@@ -59,8 +59,6 @@ describe("NotesView", () => {
     const model = new NotesModel();
     const fakeApi = { loadNotes: () => ['This note is coming from the server']}
     const view = new NotesView(model, fakeApi);
-
-    // api.loadNotes((responseFromApi => { model.setNotes(responseFromApi) }));
     
     view.displayNotesFromApi();
 
